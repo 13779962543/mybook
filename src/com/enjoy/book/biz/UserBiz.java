@@ -1,0 +1,21 @@
+package com.enjoy.book.biz;
+
+import com.enjoy.book.bean.User;
+import com.enjoy.book.dao.UserDao;
+
+import java.sql.SQLException;
+
+public class UserBiz {
+    //UserDao
+    UserDao userDao=new UserDao();
+    public User getUser(String name,String pwd){
+
+        User user=null;
+        try {
+            user=userDao.getUser(name,pwd);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return user;
+    }
+}
