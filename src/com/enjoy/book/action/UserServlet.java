@@ -67,8 +67,37 @@ public class UserServlet extends HttpServlet {
                  out.println("<script>alert('用户名或密码不存在');location.href='login.html';</script>");
                 }else{
                    //  4.2 非空，表示登录成功，将用户对象保存到session中，提示登录成功后，将页面跳转到index.jsp
-                 session.setAttribute("user",user);
+                 session.setAttribute("user",user);//user-->Object
                  out.println("<script>alert('登录成功');location.href='index.jsp';</script>");
+                }
+                break;
+            case "exit":
+                //1.清除session
+                session.invalidate();
+                //2.跳转到login.html(框架中需要回去)  top.jsp-->parent-->index.jsp
+                out.println("<script>parent.window.location.href='login.html';</script>");
+                break;
+            case "modifyPwd":
+
+                //验证用户是否登录
+                if(session.getAttribute("user")==null){
+                    out.println("<script>alert('请登录');parent.window.location.href='login.html';</script>");
+                    return;
+                }
+
+                //修改密码
+                //1.获取用户输入的新的密码
+                String newPwd=req.getParameter("newpwd");
+                //2.获取用户的编号-session
+                long id=((User)session.getAttribute("user")).getId();
+
+                //3.调用biz层方法
+                int count=userBiz.modifyPwd(id,newPwd);
+                //4.响应-参考exit
+                if(count>0){
+                    out.println("<script>alert('密码修改成功');parent.window.location.href='login.html';</script>");
+                }else{
+                    out.println("<script>alert('密码修改失败')</script>");
                 }
                 break;
         }

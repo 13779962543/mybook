@@ -18,4 +18,13 @@ public class UserBiz {
         }
         return user;
     }
+    public int modifyPwd(long id,String pwd){
+        int count=0;
+        try {
+            count=userDao.modifyPwd(id,pwd);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return count;
+    }
 }
