@@ -65,7 +65,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td>类型：</td>
+                                                        <td>父类型：</td>
                                                         <td>
                                                             <select id="parentType" name="parentType" >
                                                                 <option value="0" selected>无</option>

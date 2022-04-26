@@ -86,19 +86,68 @@ public class TypeServlet extends HttpServlet {
         //4.提示结果
     }
 
-    private void modifyPre(HttpServletRequest req, HttpServletResponse resp,PrintWriter out, ServletContext application) {
-
+    /**
+     * type_list.jsp -->type.let?type=modifypre&id=xx -转发->type_modify.jsp
+     * @param req
+     * @param resp
+     * @param out
+     * @param application
+     */
+    private void modifyPre(HttpServletRequest req, HttpServletResponse resp,PrintWriter out, ServletContext application) throws ServletException, IOException {
+        //1.获取需要修改的type对象的id
+        long id=Long.parseLong(req.getParameter("id"));
+        //2.根据id获取type对象
+        Type type= typeBiz.getById(id);
+        //3.把type存到req中,同一个功能，req,(session,application太大了,不适合)
+        req.setAttribute("type",type);
+        req.getRequestDispatcher("type_modify.jsp").forward(req,resp);
     }
 
+    /**
+     * type_modify.jsp-->type.let?type=modify-->type_list.jsp
+     * @param req
+     * @param resp
+     * @param out
+     * @param application
+     */
     private void modify(HttpServletRequest req, HttpServletResponse resp,PrintWriter out, ServletContext application) {
+        //1.获取表单中的数据(id:hidden,name,parentId)
+        long id=Long.parseLong(req.getParameter("typeId"));
+        String name=req.getParameter("typeName");
+        long parentId=Long.parseLong(req.getParameter("parentType"));
 
+        //2.调用biz的修改方法
+        int count=typeBiz.modify(id,name,parentId);
+
+        //3.更新application
+        if(count>0){
+            List<Type> types=typeBiz.getAll();
+            application.setAttribute("types",types);
+            out.println("<script>alert('修改成功');location.href='type_list.jsp'</script>");
+        }else{
+            out.println("<script>alert('修改失败');location.href='type_add.jsp'</script>");
+        }
+        //4.提示信息
     }
 
     private void remove(HttpServletRequest req, HttpServletResponse resp,PrintWriter out, ServletContext application) {
         //1.获取需要删除的id
         long id=Long.parseLong(req.getParameter("id"));
-        //2.调用方法,biz异常
 
+        //2.调用方法,biz异常
+        try {
+            int count=typeBiz.remove(id);
+            if(count>0){
+                List<Type> types=typeBiz.getAll();
+                application.setAttribute("types",types);
+                out.println("<script>alert('删除成功');location.href='type_list.jsp'</script>");
+            }else{
+                out.println("<script>alert('删除失败');location.href='type_list.jsp'</script>");
+            }
+        } catch (Exception e) {
+//            e.printStackTrace();
+            out.println("<script>alert('"+e.getMessage()+"');location.href='type_list.jsp'</script>");
+        }
         //3.更新application
 
         //4.提示结果

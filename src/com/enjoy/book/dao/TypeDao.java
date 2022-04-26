@@ -82,7 +82,7 @@ public class TypeDao {
     public int remove(long id) throws SQLException {
         Connection conn= DBHelper.getConnection();
 
-        String sql="delete type where id=?";
+        String sql="delete from type where id=?";
         int count=runner.update(conn,sql,id);
         conn.close();
         return count;
