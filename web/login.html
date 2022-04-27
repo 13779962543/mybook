@@ -3,24 +3,22 @@
 <head>
     <title>享学图书管理系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="小白图书管理系统" />
+    <meta name="description" content="享学图书管理系统" />
     <meta name="keywords" content="享学,网站管理系统,企业网站" />
     <meta name="Author" content="phenix" />
     <meta name="CopyRight" content="享学科技" />
     <link rel="stylesheet" type="text/css" href="./Style/skin.css" />
     <script language="javascript" src="Js/jquery-3.3.1.min.js"></script>
     <script language="JavaScript">
-        //1.当文档加载完毕，调用jquery
-        $(function(){
-
+        //1.当文档加载完毕,调用jquery
+        $(function () {
             //2.执行图片点击事件
-            $("#code").click(function(){
-
-                //3.设置图片的src属性,注意需要添加随机数
-                $(this).prop("src","code.let?id="+Math.random());
-            });
-
+           $("#code").click(function () {
+               //3.设置图片的src属性,注意需要添加随机数
+               $(this).prop("src","code.let?id="+Math.random());
+           });
         });
+
 
 
     </script>
@@ -50,12 +48,12 @@
                         <tr>
                             <td width="30%" rowspan="5">&nbsp;</td>
                             <td valign="top" id="form">
-                                <form id="fmLogin" method="post" action="user.let?type=login">
-                                    <table valign="top" width="50%">
+                                <form id="fmLogin" method="post" action="user.let?type=login" >
+                                    <table valign="top" width="80%" >
                                         <tr><td colspan="2"><h4 style="letter-spacing:1px;font-size:16px;">享学图书管理系统</h4></td></tr>
-                                        <tr><td>管理员：</td><td><input type="text" name="name" required /></td></tr>
-                                        <tr><td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td><td><input type="password" name="pwd" required/></td></tr>
-                                        <tr><td>验证码：</td><td style="position: relative;"><input type="text" name="valcode" value="" style="width:80px;"/>&nbsp;<img id="code" src="code.let" style="position: absolute; top:2px;" /></td></tr>
+                                        <tr><td>管理员：</td><td><input type="text" name="name"  /></td></tr>
+                                        <tr><td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td><td><input type="password" name="pwd" value="123" /></td></tr>
+                                        <tr><td>验证码：</td><td style="position: relative;"><input type="text" name="valcode" value="" style="width:60px;"/>&nbsp;<img id="code" src="code.let" style="position: absolute; top:2px;" /></td></tr>
                                         <tr class="bt"><td>&nbsp;</td><td><input type="submit" value="登录" />&nbsp;<input type="reset" value="重填" /></td></tr>
                                     </table>
                                 </form>
@@ -67,7 +65,8 @@
                 </td>
             </tr>
             <!-- 底部部分 -->
-            <tr id="login_bot"><td colspan="2"><p>Copyright © 2011-2021 生院小吴科技信息有限公司</p></td></tr>
+            <tr id="login_bot"><td colspan="2"><p>Copyright © 2011-2021 享学课堂科技信息有限公司</p></td></tr>
         </table>
     </body>
+
 </html>

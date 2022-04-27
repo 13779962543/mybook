@@ -15,6 +15,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.RequestContext;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.servlet.ServletRequestContext;
 
 
 import java.io.*;
@@ -136,7 +137,7 @@ public class BookServlet extends HttpServlet {
         //1.1 设置大小
         factory.setSizeThreshold(1024*9);
         //1.2 临时仓库
-        File file = new File("c:\\temp");
+        File file = new File("d:\\booktxt");
         if(!file.exists()){
             file.mkdir();//创建文件夹
         }
@@ -146,7 +147,7 @@ public class BookServlet extends HttpServlet {
         ServletFileUpload  fileUpload = new ServletFileUpload(factory);
 
         //3.将请求解析成一个个FileItem(文件+表单元素)
-        List<FileItem> fileItems = fileUpload.parseRequest((RequestContext) req);
+        List<FileItem> fileItems = fileUpload.parseRequest((javax.servlet.http.HttpServletRequest) req);
 
         //4.遍历FileItem
         Book book  =new Book();
@@ -292,7 +293,7 @@ public class BookServlet extends HttpServlet {
         //1.1 设置大小
         factory.setSizeThreshold(1024*9);
         //1.2 临时仓库
-        File file = new File("c:\\temp");
+        File file = new File("d:\\booktxt");
         if(!file.exists()){
             file.mkdir();//创建文件夹
         }
@@ -302,7 +303,7 @@ public class BookServlet extends HttpServlet {
         ServletFileUpload  fileUpload = new ServletFileUpload(factory);
 
         //3.将请求解析成一个个FileItem(文件+表单元素)
-        List<FileItem> fileItems = fileUpload.parseRequest((RequestContext) req);
+        List<FileItem> fileItems = fileUpload.parseRequest((javax.servlet.http.HttpServletRequest) req);
 
         //4.遍历FileItem
         Book book  =new Book();

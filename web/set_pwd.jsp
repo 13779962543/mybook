@@ -6,22 +6,7 @@
     <meta http-equiv="keywords"  content = "图书 java jsp"/>
     <meta http-equiv="author" content="phenix"/>
     <link rel="stylesheet" type="text/css" href="./Style/skin.css" />
-    <script src="Js/jquery-3.3.1.min.js"></script>
-    <script>
-        $(function(){
-            $("#newpwd2").blur(function(){
-                  if($("#newpwd").val()!=$(this).val()){
-                       $("#newpwd2_err").show();
-                  }
-
-            }).focus(function(){
-                $("#newpwd2_err").hide();
-            })
-
-        });
-
-    </script>
-
+   
 </head>
     <body>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -31,7 +16,7 @@
                     <img src="./Images/left_top_right.gif" width="17" height="29" />
                 </td>
                 <td valign="top" background="./Images/content_bg.gif">
-
+                    
                 </td>
                 <td width="16" valign="top" background="./Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="16" height="29" /></td>
             </tr>
@@ -69,27 +54,27 @@
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form  action="user.let?type=modifyPwd" method="post">
+                                            <form action="user.let?type=modifyPwd" method="post">
                                                 <table width="100%"class="cont">
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td width="80px">原密码：</td>
-                                                        <td width="150px"><input class="text" type="password" name="pwd" required/></td>
+                                                        <td width="150px"><input class="text" type="password" name="pwd" value=""/></td>
                                                         <td class="err">*原密码不匹配</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td width="80px"> 新密码：</td>
-                                                        <td width="150px"><input class="text" type="password" name="newpwd" required /></td>
+                                                        <td width="150px"><input class="text" type="password" name="newpwd" value="" /></td>
                                                         <td></td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td width="80px">确认密码：</td>
-                                                        <td width="150px"><input class="text" type="password" id="newpwd2" name="newpwd2" required /></td>
-                                                        <td id="newpwd2_err"class="err">两次密码不相同</td>
+                                                        <td width="150px"><input class="text" type="password" name="newpwd2" value="" /></td>
+                                                        <td  class="err">两次密码不相同</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
@@ -98,7 +83,7 @@
                                                         <td width="150px"><input class="btn" type="submit" value="提交" /></td>
                                                         <td ></td>
                                                         <td width="2%">&nbsp;</td>
-
+                                                        
                                                     </tr>
                                                 </table>
                                             </form>
@@ -119,7 +104,7 @@
                         <tr>
                             <td width="2%">&nbsp;</td>
                             <td width="51%" class="left_txt">
-                                <img src="./Images/icon_mail.gif" width="16" height="11"> 客户服务邮箱：1507543567@qq.com<br />
+                                <img src="./Images/icon_mail.gif" width="16" height="11"> 客户服务邮箱：2087924818@qq.com<br />
                             </td>
                             <td>&nbsp;</td><td>&nbsp;</td>
                         </tr>
@@ -137,7 +122,7 @@
                 </td>
                 <td valign="bottom" background="./Images/mail_right_bg.gif">
                     <img src="./Images/buttom_right.gif" width="16" height="17" />
-                </td>
+                </td>           
             </tr>
         </table>
     </body>

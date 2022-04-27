@@ -179,7 +179,7 @@
                 </td>
                 <td valign="bottom" background="./Images/mail_right_bg.gif">
                     <img src="./Images/buttom_right.gif" width="16" height="17" />
-                </td>
+                </td>           
             </tr>
         </table>
     </body>
