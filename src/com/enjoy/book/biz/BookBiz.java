@@ -5,10 +5,7 @@ import com.enjoy.book.bean.Record;
 import com.enjoy.book.dao.BookDao;
 import com.enjoy.book.dao.RecordDao;
 import com.enjoy.book.dao.TypeDao;
-import com.enjoy.book.util.DBHelper;
-import org.apache.commons.dbutils.handlers.BeanHandler;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
