@@ -42,6 +42,7 @@ public class UserServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         PrintWriter out = resp.getWriter();
 
+
         //1.判读用户请求的类型为login
         String method = req.getParameter("type");
         switch (method){
